@@ -1,6 +1,6 @@
 backend:
     name: github
-    repo: diogorodrigues/iceberg-gatsby-multilang
+    repo: srisaikamal/DiyPortal
     branch: master
     site_domain: https://iceberg-gatsby-multilang.netlify.com/
 
