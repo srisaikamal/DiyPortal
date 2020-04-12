@@ -7,6 +7,7 @@ export const HeaderWrapper = styled.div`
   ${media.greaterThan('large')`
     margin-bottom: var(--space);
   `}
+  background-image: linear-gradient(to right, #65C7F7 , #0052D4);
 `;
 
 export const Container = styled.div`
@@ -29,7 +30,7 @@ export const Container = styled.div`
 export const LogoLink = styled(LocalizedLink)`
   display: inline-block;
   margin-right: 0.5rem;
-  width: 170px;
+  width: 200px;
 `;
 
 export const NavMenu = styled.div`
@@ -40,6 +41,6 @@ export const NavMenu = styled.div`
   `}
 `;
 
-export const NavLanguages = styled.div`
-  margin-left: var(--space);
-`;
+// export const NavLanguages = styled.div`
+//   margin-left: var(--space);
+// `;

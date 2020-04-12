@@ -23,10 +23,10 @@ const Index = ({ data: { allMarkdownRemark } }) => {
 
   return (
     <div className="homepage">
-      <SEO title="Home" />
-      <TitlePage text={hello} />
+      <SEO title="Diy Portal" />
+      {/* <TitlePage text={hello} />
       <p>{subline}</p>
-      <hr style={{ margin: `2rem 0` }} />
+      <hr style={{ margin: `2rem 0` }} /> */}
       <h2>
         <strong>{latestPosts}</strong>
       </h2>

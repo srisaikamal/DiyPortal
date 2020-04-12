@@ -18,4 +18,14 @@ export const FooterContainer = styled.div`
   p {
     margin: 1rem 0;
   }
+  .footer {
+    text-align: center;
+  }
+  a {
+    text-decoration: none;
+    color: #0039cb;
+  }
+  a:hover {
+    color: #768fff;
+  }
 `;

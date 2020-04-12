@@ -2,6 +2,7 @@ import React from 'react';
 import useTranslations from '../useTranslations';
 import SocialLinks from '../SocialLinks';
 
+
 import * as S from './styled';
 
 const Footer = () => {
@@ -15,8 +16,8 @@ const Footer = () => {
   return (
     <S.FooterWrapper>
       <S.FooterContainer>
-        <SocialLinks />
-        <p>
+        {/* <SocialLinks /> */}
+        {/* <p>
           {aboutProject}{' '}
           <a
             href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps"
@@ -42,7 +43,19 @@ const Footer = () => {
             Github
           </a>
           .
-        </p>
+        </p> */}
+
+        {/* <p>© <span>2018</span> <a href="#" class="transition">KnightRider7660</a> All rights reserved.</p> */}
+
+
+        <footer class="foot">
+
+          <div class="footer">© 2020 Copyright:
+    <a href="https://Diyportal.me/"> DiyPortal.me</a>
+          </div>
+
+        </footer>
+
       </S.FooterContainer>
     </S.FooterWrapper>
   );
