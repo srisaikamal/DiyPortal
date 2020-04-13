@@ -1,42 +1,65 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import TitlePage from '../components/TitlePage';
-import SEO from '../components/seo';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
+import Helmet from 'react-helmet'
 
-import * as S from '../components/Content/styled';
+import { Layout } from '../components/common'
+import { MetaData } from '../components/common/meta'
 
-const Page = props => {
-  const post = props.data.markdownRemark;
+/**
+* Single page (/:slug)
+*
+* This file renders a single page and loads all the content.
+*
+*/
+const Page = ({ data, location }) => {
+    const page = data.ghostPage
 
-  return (
-    <>
-      <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description}
-        image={post.frontmatter.image}
-      />
-      <TitlePage text={post.frontmatter.title} />
-      <S.Content>
-        <div dangerouslySetInnerHTML={{ __html: post.html }}></div>
-      </S.Content>
-    </>
-  );
-};
+    return (
+        <>
+            <MetaData
+                data={data}
+                location={location}
+                type="website"
+            />
+            <Helmet>
+                <style type="text/css">{`${page.codeinjection_styles}`}</style>
+            </Helmet>
+            <Layout>
+                <div className="container">
+                    <article className="content">
+                        <h1 className="content-title">{page.title}</h1>
 
-export const query = graphql`
-  query Page($locale: String!, $title: String!) {
-    markdownRemark(
-      frontmatter: { title: { eq: $title } }
-      fields: { locale: { eq: $locale } }
-    ) {
-      frontmatter {
-        title
-        description
-        image
-      }
-      html
+                        {/* The main page content */}
+                        <section
+                            className="content-body load-external-scripts"
+                            dangerouslySetInnerHTML={{ __html: page.html }}
+                        />
+                    </article>
+                </div>
+            </Layout>
+        </>
+    )
+}
+
+Page.propTypes = {
+    data: PropTypes.shape({
+        ghostPage: PropTypes.shape({
+            codeinjection_styles: PropTypes.object,
+            title: PropTypes.string.isRequired,
+            html: PropTypes.string.isRequired,
+            feature_image: PropTypes.string,
+        }).isRequired,
+    }).isRequired,
+    location: PropTypes.object.isRequired,
+}
+
+export default Page
+
+export const postQuery = graphql`
+    query($slug: String!) {
+        ghostPage(slug: { eq: $slug }) {
+            ...GhostPageFields
+        }
     }
-  }
-`;
-
-export default Page;
+`
