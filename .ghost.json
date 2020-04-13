@@ -1,10 +1,10 @@
 {
   "development": {
-    "apiUrl": "https://diyprojects.herokuapp.com",
-    "contentApiKey": "2b5805a98837e3338b4426d0fd"
+    "apiUrl": "https://diyportal.herokuapp.com",
+    "contentApiKey": "066a1d7a7a41d96b064efadeed"
   },
   "production": {
-    "apiUrl": "https://diyprojects.herokuapp.com",
-    "contentApiKey": "2b5805a98837e3338b4426d0fd"
+    "apiUrl": "https://diyportal.herokuapp.com",
+    "contentApiKey": "066a1d7a7a41d96b064efadeed"
   }
 }
